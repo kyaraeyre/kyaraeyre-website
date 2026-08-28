@@ -700,11 +700,6 @@ hr.hairline {
   25% { opacity: 0; transform: translateX(2.5%) scale(1.07); }
   100% { opacity: 0; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .hero-carousel .hero-slide { animation: none; opacity: 0; }
-  .hero-carousel .hero-slide:first-child { opacity: 1; }
-}
-
 @media (max-width: 760px) {
   .hero-full { min-height: 72vh; padding: var(--space-lg) 1.25rem; }
 }
