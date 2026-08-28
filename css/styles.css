@@ -437,6 +437,25 @@ hr.hairline {
 .listing-tile-info { padding-top: 0.85rem; }
 .listing-tile-info h3 { margin: 0 0 0.3rem; font-size: 1.05rem; }
 .listing-tile-info p { margin: 0; color: var(--color-text-muted); font-size: 0.85rem; }
+.view-all-tile {
+  background: var(--color-heading);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.view-all-tile span {
+  color: var(--color-white);
+  font-family: var(--font-serif, serif);
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+.view-all-arrow { font-size: 1.5rem; transition: transform 0.2s ease; }
+.instagram-tile:hover .view-all-arrow { transform: translateX(6px); }
 
 /* Status badge for a listing hero (e.g. Under Contract), shown near the
    eyebrow when a listing is not actively available for showings. */
