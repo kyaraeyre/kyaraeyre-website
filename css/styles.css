@@ -994,15 +994,9 @@ a.card { text-decoration: none; color: inherit; }
   text-shadow: 0 2px 14px rgba(0,0,0,0.4);
 }
 
-/* About-page video reel: no headline sits over this one, so the overlay
-   only needs to be just dark enough to keep the section from looking flat
-   against the white sections around it, not dark enough for text legibility. */
-.hero-full.about-reel {
-  min-height: 62vh;
-}
-.hero-full.about-reel .hero-bg::after {
-  background: linear-gradient(180deg, rgba(43,33,23,0.1) 0%, rgba(43,33,23,0.22) 100%);
-}
+/* About-page video reel: now matches the homepage hero banner exactly
+   (same min-height and overlay, via the shared .hero-home class on the
+   section) so the two full-bleed video banners feel identical site-wide. */
 
 /* Personal K/E monogram badge (kept in case it's reused elsewhere later) */
 .personal-mark {
