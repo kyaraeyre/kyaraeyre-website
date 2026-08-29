@@ -262,4 +262,58 @@
       activateTab(initialTab);
     }
   }
+
+  /* -----------------------------------------------------------
+     8. Hero background carousel: each photo shows for a fixed
+        duration, and each video plays out its full natural length
+        before the carousel advances to the next slide. Without
+        JavaScript, the CSS-only fixed-timing cycle in styles.css
+        (.hero-carousel .hero-slide / @keyframes heroSlideCycle)
+        keeps every slide visible on a simple timer instead.
+     ----------------------------------------------------------- */
+  document.querySelectorAll(".hero-carousel").forEach(function (carousel) {
+    var slides = Array.prototype.slice.call(carousel.querySelectorAll(".hero-slide"));
+    if (slides.length < 2) return;
+
+    carousel.classList.add("js-carousel");
+
+    var PHOTO_DURATION = 6000;
+    var VIDEO_SAFETY_TIMEOUT = 20000; // in case a video never fires "ended"
+    var current = 0;
+    var advanceTimer = null;
+
+    var goTo = function (index) {
+      window.clearTimeout(advanceTimer);
+
+      var prevSlide = slides[current];
+      var prevVideo = prevSlide.querySelector("video");
+      if (prevVideo) prevVideo.pause();
+      prevSlide.classList.remove("is-active");
+
+      current = index % slides.length;
+      var slide = slides[current];
+      slide.classList.add("is-active");
+
+      var video = slide.querySelector("video");
+      if (video) {
+        var advanced = false;
+        var advanceOnce = function () {
+          if (advanced) return;
+          advanced = true;
+          goTo(current + 1);
+        };
+        video.currentTime = 0;
+        var playPromise = video.play();
+        if (playPromise && typeof playPromise.catch === "function") {
+          playPromise.catch(function () { /* autoplay blocked; safety timeout below still advances */ });
+        }
+        video.addEventListener("ended", advanceOnce, { once: true });
+        advanceTimer = window.setTimeout(advanceOnce, VIDEO_SAFETY_TIMEOUT);
+      } else {
+        advanceTimer = window.setTimeout(function () { goTo(current + 1); }, PHOTO_DURATION);
+      }
+    };
+
+    goTo(0);
+  });
 })();
