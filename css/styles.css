@@ -1463,6 +1463,12 @@ figure.table-wrap { overflow-x: auto; margin: 0; }
 @media (max-width: 560px) {
   .office-map-row.two-col { grid-template-columns: 1fr; }
 }
+/* The map's .placeholder-img box uses aspect-ratio:3/2 (shared with photo
+   gallery tiles elsewhere on the site). In a narrow grid column that
+   aspect-ratio computes a width wider than the column itself, so the box
+   overflows its own grid cell and covers the blurb text next to it.
+   Constrain it to the column width so it stays inside its own cell. */
+.office-map-row.two-col > .placeholder-img { width: 100%; max-width: 100%; }
 
 @media (max-width: 760px) {
   :root { --nav-height: 62px; }
