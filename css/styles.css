@@ -545,17 +545,6 @@ hr.hairline {
   -ms-overflow-style: none;
 }
 .instagram-track::-webkit-scrollbar { display: none; }
-/* Lifestyle photo carousel (about.html "life around the Valley"): reuses
-   the instagram-carousel track/arrow markup and JS, but with wider tiles
-   sized for a single full photo instead of an embedded Instagram post. */
-.instagram-track .lifestyle-tile {
-  flex: 0 0 min(560px, 82vw);
-  max-width: min(560px, 82vw);
-}
-.instagram-track .lifestyle-tile .placeholder-img {
-  aspect-ratio: 3 / 2;
-  min-height: 0;
-}
 .instagram-track .instagram-tile {
   flex: 0 0 340px;
   max-width: 340px;
@@ -1089,12 +1078,14 @@ a.card { text-decoration: none; color: inherit; }
 .hero-full.hero-home .hero-bg::after {
   background: linear-gradient(180deg, rgba(43,33,23,0.32) 0%, rgba(43,33,23,0.4) 55%, rgba(43,33,23,0.6) 100%);
 }
-/* Shorter than the standard hero-full height so the wide video footage
-   crops less aggressively (object-fit:cover crops less width when the
-   box demands less height). Keeps listing-page photo heroes untouched. */
-.hero-full.hero-home { min-height: 70vh; }
-@media (max-width: 760px) {
-  .hero-full.hero-home { min-height: 56vh; }
+/* Match the section's shape exactly to the hero video/photo footage
+   (1600x900, 16:9) instead of a viewport-height min-height. With the box
+   AR equal to the media AR, object-fit:cover has nothing to crop in
+   either direction, so the full frame always shows, at any screen size.
+   Keeps listing-page photo heroes (plain .hero-full) untouched. */
+.hero-full.hero-home {
+  aspect-ratio: 16 / 9;
+  min-height: 0;
 }
 .hero-full.hero-home .hero-content .eyebrow,
 .hero-full.hero-home .hero-content h1,
