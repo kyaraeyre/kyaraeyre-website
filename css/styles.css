@@ -1181,6 +1181,18 @@ a.card { text-decoration: none; color: inherit; }
   .section-watermark.watermark-corner::before { width: 50%; left: -6%; top: 10px; }
 }
 
+/* About page bio section only: mirror the watermark to sit behind the
+   blurb column (right side of the two-col layout) instead of behind the
+   headshot photo. Scoped with .watermark-corner-right so every other
+   page's .watermark-corner (photo/left-column layouts) is untouched. */
+.section-watermark.watermark-corner.watermark-corner-right::before {
+  left: auto;
+  right: 2%;
+}
+@media (max-width: 760px) {
+  .section-watermark.watermark-corner.watermark-corner-right::before { left: auto; right: -6%; }
+}
+
 /* -----------------------------
    15. Lightbox
    ----------------------------- */
