@@ -53,6 +53,11 @@
    ----------------------------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+/* Safety net: no element on the site should ever be able to make the page
+   itself horizontally scrollable. (This is what let the mobile off-canvas
+   nav menu, below, escape the screen sideways rather than simply staying
+   hidden off to the right.) */
+html, body { overflow-x: hidden; }
 body {
   margin: 0;
   font-family: var(--font-sans);
@@ -1526,13 +1531,19 @@ figure.table-wrap { overflow-x: auto; margin: 0; }
 
 @media (max-width: 760px) {
   :root { --nav-height: 62px; }
-  /* Fixed positioning here is anchored to .site-header's box, not the
-     viewport, because .site-header has backdrop-filter (blur), and any
-     backdrop-filter/filter ancestor becomes the containing block for its
-     position:fixed descendants. bottom:0 would resolve against the
-     header's own ~63px box (collapsing this panel to a sliver), so the
-     panel's height is set with a viewport unit (100vh) instead, which
-     stays correct regardless of containing block. */
+  /* .site-header's backdrop-filter (blur) makes it the containing block
+     for any position:fixed descendant, instead of the real viewport.
+     That broke the off-canvas .nav-links panel two ways: its height had
+     to be worked around with a viewport unit below, and worse, the panel
+     was no longer truly "fixed to the screen" -- so its off-canvas
+     (closed) position past the right edge counted as real, scrollable
+     page content instead of being safely off-screen, letting the page
+     scroll sideways and land on what looked like a menu stuck against
+     the right edge. Disabling the blur here removes the whole class of
+     bug at its source; the header's background is already an opaque 96%
+     white, so the blur was never doing much visible work on mobile
+     anyway. */
+  .site-header { backdrop-filter: none; }
   .nav-links {
     position: fixed;
     top: var(--nav-height);
