@@ -16,6 +16,71 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://kyaraeyre.com/get-in-touch.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kyaraeyre.com/home-search.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kyaraeyre.com/listings/index.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://kyaraeyre.com/listings/10055-e-mountainview-lake-dr-1019.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kyaraeyre.com/listings/2047-w-cambridge-ave.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kyaraeyre.com/listings/22092-n-89th-st.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kyaraeyre.com/listings/25838-n-104th-pl.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kyaraeyre.com/listings/4634-e-calle-tuberia.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kyaraeyre.com/listings/5840-n-70th-pl.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kyaraeyre.com/listings/6061-n-granite-reef-rd.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kyaraeyre.com/listings/6587-n-palmeraie-blvd-2021.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kyaraeyre.com/listings/6733-e-phelps-rd.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://kyaraeyre.com/listings/7380-e-vaquero-dr.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://kyaraeyre.com/privacy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
