@@ -1240,6 +1240,13 @@ a.card { text-decoration: none; color: inherit; }
   .section-watermark.watermark-corner.watermark-corner-right::before { left: auto; right: -10%; width: 62%; }
 }
 
+/* Blog index hero only: nudge the watermark up from its default vertical
+   center. Scoped with .watermark-high so every other page's default
+   .section-watermark centering is untouched. */
+.section-watermark.watermark-high::before {
+  top: 32%;
+}
+
 /* -----------------------------
    15. Lightbox
    ----------------------------- */
