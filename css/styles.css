@@ -545,6 +545,17 @@ hr.hairline {
   -ms-overflow-style: none;
 }
 .instagram-track::-webkit-scrollbar { display: none; }
+/* Lifestyle photo carousel (about.html "life around the Valley"): reuses
+   the instagram-carousel track/arrow markup and JS, but with wider tiles
+   sized for a single full photo instead of an embedded Instagram post. */
+.instagram-track .lifestyle-tile {
+  flex: 0 0 min(560px, 82vw);
+  max-width: min(560px, 82vw);
+}
+.instagram-track .lifestyle-tile .placeholder-img {
+  aspect-ratio: 3 / 2;
+  min-height: 0;
+}
 .instagram-track .instagram-tile {
   flex: 0 0 340px;
   max-width: 340px;
@@ -1064,6 +1075,12 @@ a.card { text-decoration: none; color: inherit; }
 @media (max-width: 560px) {
   .headshot-frame::before { top: 5%; left: -5%; width: 90%; height: 94%; }
 }
+/* Listings-page hero photo reuses the headshot-frame accent, but wraps a
+   full-width placeholder-img box instead of a bare img, so it needs the
+   frame to stay block-level/full-width and the nested box lifted above
+   the offset rectangle (headshot-frame > img alone won't reach it). */
+.hero.section-tight .headshot-frame { display: block; width: 100%; }
+.headshot-frame > .placeholder-img { position: relative; z-index: 1; }
 
 /* Homepage-only hero overlay: lighter and more transparent than the
    standard .hero-full overlay used on listing pages (those stay darker
@@ -1071,6 +1088,13 @@ a.card { text-decoration: none; color: inherit; }
    photos). Scoped to .hero-home so listing pages are unaffected. */
 .hero-full.hero-home .hero-bg::after {
   background: linear-gradient(180deg, rgba(43,33,23,0.32) 0%, rgba(43,33,23,0.4) 55%, rgba(43,33,23,0.6) 100%);
+}
+/* Shorter than the standard hero-full height so the wide video footage
+   crops less aggressively (object-fit:cover crops less width when the
+   box demands less height). Keeps listing-page photo heroes untouched. */
+.hero-full.hero-home { min-height: 70vh; }
+@media (max-width: 760px) {
+  .hero-full.hero-home { min-height: 56vh; }
 }
 .hero-full.hero-home .hero-content .eyebrow,
 .hero-full.hero-home .hero-content h1,
