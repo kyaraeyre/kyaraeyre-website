@@ -1078,13 +1078,15 @@ a.card { text-decoration: none; color: inherit; }
 .hero-full.hero-home .hero-bg::after {
   background: linear-gradient(180deg, rgba(43,33,23,0.32) 0%, rgba(43,33,23,0.4) 55%, rgba(43,33,23,0.6) 100%);
 }
-/* Match the section's shape exactly to the hero video/photo footage
-   (1600x900, 16:9) instead of a viewport-height min-height. With the box
-   AR equal to the media AR, object-fit:cover has nothing to crop in
-   either direction, so the full frame always shows, at any screen size.
+/* Sized a bit shorter than the hero footage's native 16:9 (1600x900) shape
+   so the banner reads as a smaller block, not a full-height slab. The box
+   is wider than the media now, so object-fit:cover trims a little off the
+   top and bottom only (never the sides) — object-position defaults to
+   center, so the video/photo stays centered in the crop. Fixed AR (not a
+   viewport-height min-height) keeps this identical at any screen size.
    Keeps listing-page photo heroes (plain .hero-full) untouched. */
 .hero-full.hero-home {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 2.3 / 1;
   min-height: 0;
 }
 .hero-full.hero-home .hero-content .eyebrow,
