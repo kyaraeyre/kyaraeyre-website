@@ -120,7 +120,7 @@ p { margin: 0 0 var(--space-sm); }
 .nav-name-link { display: flex; align-items: center; }
 .nav-name {
   font-family: var(--font-serif);
-  font-size: 2.3rem;
+  font-size: 2.15rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   color: var(--color-black);
@@ -130,21 +130,21 @@ p { margin: 0 0 var(--space-sm); }
    header's right edge. On mobile, .nav-links goes fixed/off-canvas (see
    below) so this cluster naturally reduces to just the brandmark and
    the hamburger toggle. */
-.nav-right { display: flex; align-items: center; gap: 2.25rem; }
+.nav-right { display: flex; align-items: center; gap: 1.85rem; }
 .nav-brandmark { display: flex; align-items: center; }
 .nav-brandmark img { height: 50px; width: auto; image-rendering: -webkit-optimize-contrast; }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.6rem;
+  gap: 1.3rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 .nav-links a {
-  font-size: 0.82rem;
+  font-size: 0.78rem;
   font-weight: 500;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-black);
   padding: 0.4rem 0.1rem;
@@ -155,7 +155,7 @@ p { margin: 0 0 var(--space-sm); }
 .nav-links a[aria-current="page"] { border-color: var(--color-accent); color: var(--color-accent-dark); }
 .nav-cta {
   border: 1px solid var(--color-black) !important;
-  padding: 0.7rem 1.4rem !important;
+  padding: 0.65rem 1.15rem !important;
   border-radius: var(--radius);
   white-space: nowrap;
 }
@@ -1165,6 +1165,14 @@ a.card { text-decoration: none; color: inherit; }
    (same min-height and overlay, via the shared .hero-home class on the
    section) so the two full-bleed video banners feel identical site-wide. */
 
+/* On narrow phones, the 2.3:1 box above gets so short (e.g. ~170px on a
+   390px-wide screen) that the video reads as a cramped, badly-cropped
+   strip. Taller ratio on mobile only, so the video banner still reads as
+   a real, presentable moment instead of a sliver. */
+@media (max-width: 760px) {
+  .hero-full.hero-home { aspect-ratio: 4 / 3; }
+}
+
 /* Personal K/E monogram badge (kept in case it's reused elsewhere later) */
 .personal-mark {
   position: absolute;
@@ -1491,15 +1499,15 @@ figure.table-wrap { overflow-x: auto; margin: 0; }
     align-items: flex-start;
     justify-content: flex-start;
     gap: 0;
-    padding: 1.5rem 1.5rem 2rem;
+    padding: 1rem 1.5rem 1.5rem;
     transform: translateX(100%);
     transition: transform 0.3s ease;
     overflow-y: auto;
   }
   .nav-links.is-open { transform: translateX(0); }
   .nav-links li { width: 100%; border-bottom: 1px solid var(--color-border); }
-  .nav-links a { display: block; padding: 1.1rem 0.1rem; font-size: 0.95rem; }
-  .nav-cta { border: none !important; margin-top: 0.5rem; }
+  .nav-links a { display: block; padding: 0.8rem 0.1rem; font-size: 0.92rem; }
+  .nav-cta { border: none !important; margin-top: 0.3rem; }
   .nav-toggle { display: block; }
   .nav-right { gap: 1rem; }
   .nav-brandmark img { height: 38px; }
@@ -1515,9 +1523,9 @@ figure.table-wrap { overflow-x: auto; margin: 0; }
     display: none;
   }
   .has-dropdown.is-open .dropdown-menu { display: block; }
-  .dropdown-toggle { width: 100%; justify-content: space-between; padding: 1.1rem 0.1rem; }
+  .dropdown-toggle { width: 100%; justify-content: space-between; padding: 0.8rem 0.1rem; font-size: 0.92rem; }
   .has-dropdown { border-bottom: 1px solid var(--color-border); }
-  .has-dropdown .dropdown-menu a { border-bottom: 1px solid var(--color-border); padding: 0.9rem 0.1rem; }
+  .has-dropdown .dropdown-menu a { border-bottom: 1px solid var(--color-border); padding: 0.65rem 0.1rem; font-size: 0.88rem; }
   .has-dropdown .dropdown-menu li:last-child a { border-bottom: none; }
   section { padding: var(--space-lg) 0; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
