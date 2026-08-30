@@ -801,6 +801,26 @@ hr.hairline {
   animation-fill-mode: both;
 }
 .hero-carousel .hero-slide .placeholder-img { position: absolute; inset: 0; }
+/* Bug fix: the carousel nests each photo/video three levels deep inside
+   .hero-bg (hero-bg > hero-carousel > hero-slide > placeholder-img > img/video),
+   but the earlier ".hero-full .hero-bg > *" sizing rule only reaches a DIRECT
+   child of .hero-bg, so it never applied width/height/position to the actual
+   media element. Without an explicit box, a replaced element (img/video) that's
+   absolutely positioned with inset:0 but no width/height falls back to its own
+   intrinsic size instead of stretching to fill the slide — so every hero video
+   was rendering at its native pixel size, anchored top-left, and just getting
+   clipped by the section's overflow:hidden. That silently defeated object-fit
+   and object-position (both need the box to differ from the intrinsic size to
+   do anything), which is why the per-clip framing/position rules above had no
+   visible effect. This rule reaches the actual media element so it fills its
+   slide properly and the object-fit/object-position rules can take effect. */
+.hero-carousel .hero-slide .placeholder-img img,
+.hero-carousel .hero-slide .placeholder-img video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
 .hero-carousel .hero-slide:nth-child(1) { animation-delay: 0s; }
 .hero-carousel .hero-slide:nth-child(2) { animation-delay: 6s; }
 .hero-carousel .hero-slide:nth-child(3) { animation-delay: 12s; }
