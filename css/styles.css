@@ -1130,9 +1130,6 @@ a.card { text-decoration: none; color: inherit; }
    they apply wherever a clip is used) shift the crop to keep her fully
    in frame first, giving up the least-noticeable margin (headroom,
    rather than her feet or face) wherever the full body doesn't fit. */
-.hero-full.hero-home .hero-bg video[poster*="hero-home-windows"] {
-  object-position: center 70%;
-}
 .hero-full.hero-home .hero-bg video[poster*="hero-home-grass"] {
   object-position: center 20%;
 }
