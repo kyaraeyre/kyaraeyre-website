@@ -1488,12 +1488,19 @@ figure.table-wrap { overflow-x: auto; margin: 0; }
 
 @media (max-width: 760px) {
   :root { --nav-height: 62px; }
+  /* Fixed positioning here is anchored to .site-header's box, not the
+     viewport, because .site-header has backdrop-filter (blur), and any
+     backdrop-filter/filter ancestor becomes the containing block for its
+     position:fixed descendants. bottom:0 would resolve against the
+     header's own ~63px box (collapsing this panel to a sliver), so the
+     panel's height is set with a viewport unit (100vh) instead, which
+     stays correct regardless of containing block. */
   .nav-links {
     position: fixed;
     top: var(--nav-height);
     left: 0;
     right: 0;
-    bottom: 0;
+    height: calc(100vh - var(--nav-height));
     background: var(--color-white);
     flex-direction: column;
     align-items: flex-start;
