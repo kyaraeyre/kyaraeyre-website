@@ -17,7 +17,7 @@
 
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="alternate icon" href="../favicon.ico">
-<link rel="stylesheet" href="../css/styles.css?v=4">
+<link rel="stylesheet" href="../css/styles.css?v=5">
 
 <script type="application/ld+json">
 {
@@ -240,8 +240,8 @@
     </div>
   </section>
 
-  <section class="section-tight">
-    <div class="container">
+  <section class="section-tight section-watermark">
+    <div class="container watermark-content">
       <div class="section-head center reveal">
         <span class="eyebrow">Highlights</span>
         <h2>What makes this Ritz-Carlton Residences villa stand out?</h2>
@@ -299,7 +299,7 @@
           <li><strong>Schools:</strong> Scottsdale Unified, assigned to Kiva Elementary, Mohave Middle School, and Saguaro High School</li>
         </ul>
       </div></div>
-      <p style="grid-column:1 / -1;text-align:center;font-size:0.8rem;color:var(--color-text-muted);max-width:60ch;margin:2.5rem auto 0;line-height:1.8;">Williams Luxury Homes abides by the Fair Housing Act and does not discriminate on the basis of race, color, religion, sex, disability, familial status, or national origin. Listing information above is deemed reliable but not guaranteed and should be independently verified.</p>
+      <p style="grid-column:1 / -1;text-align:center;font-size:0.8rem;color:var(--color-text-muted);max-width:90ch;margin:2.5rem auto 0;line-height:1.8;">Williams Luxury Homes abides by the Fair Housing Act and does not discriminate on the basis of race, color, religion, sex, disability, familial status, or national origin. Listing information above is deemed reliable but not guaranteed and should be independently verified.</p>
     </div>
   </section>
 
@@ -361,42 +361,11 @@
         <p style="font-size:0.85rem;color:var(--color-text-muted);">Presented by agents William P. Lewis and Nicholas W. Naydenov.</p>
       </div>
       <div class="reveal">
-        <!--
-          FORM NOTE FOR KYARA: This form submits straight to your HubSpot
-          account through HubSpot's Forms API, using js/hubspot-form.js.
-          It keeps the site's own look instead of HubSpot's embedded
-          widget. A lead who submits here shows up in HubSpot as a
-          contact, same as if they had used the HubSpot form directly.
-        -->
-        <form class="contact-form" action="#" method="POST" data-hubspot-portal-id="246949822" data-hubspot-form-id="109bc2b2-d4c8-4831-9250-6f44ced3720e">
-          <input type="hidden" name="property" value="6587 N Palmeraie Blvd #2021, Paradise Valley, AZ 85253 (MLS #6992681)">
-          <div class="form-row">
-            <div class="form-field">
-              <label for="first-name">First Name</label>
-              <input type="text" id="first-name" name="first-name" required>
-            </div>
-            <div class="form-field">
-              <label for="last-name">Last Name</label>
-              <input type="text" id="last-name" name="last-name" required>
-            </div>
+        <div class="hubspot-embed-wrap">
+          <div id="tour-hubspot-form">
+            <p class="hubspot-embed-loading">Loading the tour request form&hellip;</p>
           </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-field">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone">
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="I'd like to schedule a private showing of 6587 N Palmeraie Blvd #2021.">I'd like to schedule a private showing of 6587 N Palmeraie Blvd #2021.</textarea>
-          </div>
-          <button type="submit" class="btn" style="width:100%;">Request a Private Showing</button>
-          <p class="form-note" style="margin-top:1rem;">By submitting, you agree to be contacted by Kyara Eyre regarding your inquiry. See the <a href="../privacy.html">Privacy &amp; Cookie Policy</a>.</p>
-        </form>
+        </div>
       </div>
     </div>
   </section>
@@ -478,7 +447,14 @@
 
 <script src="../js/main.js"></script>
 <script src="../js/consent.js"></script>
-<script src="../js/hubspot-form.js"></script>
+<script charset="utf-8" type="text/javascript" src="//js-na2.hsforms.net/forms/embed/v2.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.hbspt) {
+      hbspt.forms.create({ portalId: "246949822", formId: "4c009795-3e91-4bf4-9a38-b5dc2aa2f474", region: "na2", target: "#tour-hubspot-form" });
+    }
+  });
+</script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
