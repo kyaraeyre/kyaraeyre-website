@@ -1170,7 +1170,14 @@ a.card { text-decoration: none; color: inherit; }
    strip. Taller ratio on mobile only, so the video banner still reads as
    a real, presentable moment instead of a sliver. */
 @media (max-width: 760px) {
-  .hero-full.hero-home { aspect-ratio: 4 / 3; }
+  /* aspect-ratio alone isn't enough: it makes the box shrink faster than
+     the text does as the screen gets narrower (checked at 606px wide,
+     where the fix looked fine, but a real phone at 375-430px wide is
+     narrow enough that the box outruns the text again and clips it).
+     min-height is a floor aspect-ratio can't undercut, so the box only
+     gets taller than 4:3 on the narrowest phones, never shorter than
+     the content needs regardless of width. */
+  .hero-full.hero-home { aspect-ratio: 4 / 3; min-height: 480px; }
   /* The video banner's box is much shorter than a typical full hero, so
      the headline/lede/stats stack (sized for a tall hero) was overflowing
      the box and getting visually cut off by .hero-full's overflow:hidden.
@@ -1584,11 +1591,18 @@ figure.table-wrap { overflow-x: auto; margin: 0; }
   /* Most sections (hero, testimonials, section-heads) are already
      centered on mobile; the plain text+photo two-column blocks were the
      one place still reading left-aligned once they stack to a single
-     column. Centered those here. Left alone on purpose: any block that
-     holds a bulleted list, a form, or an iframe (property-fact lists and
-     tour-request forms), since those read worse centered. */
-  .two-col > div:not(:has(ul)):not(:has(iframe)):not(:has(form)) {
+     column. Centered those here (heading/paragraph text, even when a
+     short list sits alongside it, like the WLH Studios block). The list
+     itself always stays left-aligned for readability. Left alone
+     entirely: a .card block (property-fact / listing-detail lists,
+     where the list *is* the content and reads far better left-aligned
+     as a title+list card) and any block with a form or iframe
+     (tour-request panels), since those read worse centered. */
+  .two-col > div:not(.card):not(:has(iframe)):not(:has(form)) {
     text-align: center;
+  }
+  .two-col > div:not(.card) ul {
+    text-align: left;
   }
 }
 
