@@ -1112,7 +1112,7 @@ a.card { text-decoration: none; color: inherit; }
   object-position: center 20%;
 }
 .hero-full.hero-home .hero-bg video[poster*="hero-about-pinkdress-door"] {
-  object-position: center 100%;
+  object-position: center 50%;
 }
 
 /* About-page video reel: now matches the homepage hero banner exactly
