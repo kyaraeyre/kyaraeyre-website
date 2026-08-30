@@ -120,7 +120,7 @@ p { margin: 0 0 var(--space-sm); }
 .nav-name-link { display: flex; align-items: center; }
 .nav-name {
   font-family: var(--font-serif);
-  font-size: 2.15rem;
+  font-size: 2.1rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   color: var(--color-black);
@@ -130,21 +130,21 @@ p { margin: 0 0 var(--space-sm); }
    header's right edge. On mobile, .nav-links goes fixed/off-canvas (see
    below) so this cluster naturally reduces to just the brandmark and
    the hamburger toggle. */
-.nav-right { display: flex; align-items: center; gap: 1.85rem; }
+.nav-right { display: flex; align-items: center; gap: 1.65rem; }
 .nav-brandmark { display: flex; align-items: center; }
 .nav-brandmark img { height: 50px; width: auto; image-rendering: -webkit-optimize-contrast; }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.3rem;
+  gap: 1rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 .nav-links a {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 500;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--color-black);
   padding: 0.4rem 0.1rem;
@@ -155,7 +155,7 @@ p { margin: 0 0 var(--space-sm); }
 .nav-links a[aria-current="page"] { border-color: var(--color-accent); color: var(--color-accent-dark); }
 .nav-cta {
   border: 1px solid var(--color-black) !important;
-  padding: 0.65rem 1.15rem !important;
+  padding: 0.6rem 1.05rem !important;
   border-radius: var(--radius);
   white-space: nowrap;
 }
