@@ -1171,6 +1171,37 @@ a.card { text-decoration: none; color: inherit; }
    a real, presentable moment instead of a sliver. */
 @media (max-width: 760px) {
   .hero-full.hero-home { aspect-ratio: 4 / 3; }
+  /* The video banner's box is much shorter than a typical full hero, so
+     the headline/lede/stats stack (sized for a tall hero) was overflowing
+     the box and getting visually cut off by .hero-full's overflow:hidden.
+     Scaled the whole content stack down to fit comfortably. */
+  .hero-full.hero-home .hero-content .eyebrow {
+    font-size: 0.68rem;
+    margin-bottom: 0.5rem;
+  }
+  .hero-full.hero-home .hero-content h1 {
+    font-size: clamp(1.4rem, 6vw, 1.85rem);
+    line-height: 1.2;
+  }
+  .hero-full.hero-home .hero-content .lede {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-top: 0.65rem;
+  }
+  .hero-full.hero-home .hero-actions {
+    margin-top: 1rem;
+    gap: 0.6rem;
+  }
+  .hero-full.hero-home .hero-actions .btn {
+    padding: 0.65rem 1rem;
+    font-size: 0.78rem;
+  }
+  .hero-full.hero-home .hero-stats {
+    margin-top: 1rem;
+    gap: 0.75rem;
+  }
+  .hero-full.hero-home .hero-stats strong { font-size: 1.15rem; }
+  .hero-full.hero-home .hero-stats span { font-size: 0.62rem; }
 }
 
 /* Personal K/E monogram badge (kept in case it's reused elsewhere later) */
@@ -1549,6 +1580,16 @@ figure.table-wrap { overflow-x: auto; margin: 0; }
   .btn { width: 100%; text-align: center; }
   .hero-actions .btn { width: auto; }
   .cta-band .btn { width: auto; }
+
+  /* Most sections (hero, testimonials, section-heads) are already
+     centered on mobile; the plain text+photo two-column blocks were the
+     one place still reading left-aligned once they stack to a single
+     column. Centered those here. Left alone on purpose: any block that
+     holds a bulleted list, a form, or an iframe (property-fact lists and
+     tour-request forms), since those read worse centered. */
+  .two-col > div:not(:has(ul)):not(:has(iframe)):not(:has(form)) {
+    text-align: center;
+  }
 }
 
 @media (max-width: 420px) {
