@@ -1453,6 +1453,17 @@ figure.table-wrap { overflow-x: auto; margin: 0; }
   #communities .grid .card { flex: 1 1 calc(50% - 1.125rem); max-width: calc(50% - 1.125rem); }
 }
 
+/* Contact page office map + blurb: this pair is short enough to stay
+   side by side well past the general .two-col tablet breakpoint above,
+   so it gets its own narrower stacking point instead of collapsing to a
+   single column (map on top, blurb pushed down) as early as everything
+   else does. Higher specificity than both .two-col rules above so it
+   wins at 980px; still stacks on true mobile widths. */
+.office-map-row.two-col { grid-template-columns: 1fr 1fr; }
+@media (max-width: 560px) {
+  .office-map-row.two-col { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 760px) {
   :root { --nav-height: 62px; }
   .nav-links {
