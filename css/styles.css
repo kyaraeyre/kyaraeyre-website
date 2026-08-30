@@ -56,8 +56,12 @@ html { scroll-behavior: smooth; }
 /* Safety net: no element on the site should ever be able to make the page
    itself horizontally scrollable. (This is what let the mobile off-canvas
    nav menu, below, escape the screen sideways rather than simply staying
-   hidden off to the right.) */
-html, body { overflow-x: hidden; }
+   hidden off to the right.) Set on html only, not body -- setting it on
+   both turns body into its own separate scrollable box, which introduced
+   a different glitch (its scroll position could drift independently of
+   the page's, shifting the header sideways). html alone fully blocks
+   page-level horizontal scrolling without that side effect. */
+html { overflow-x: hidden; }
 body {
   margin: 0;
   font-family: var(--font-sans);
