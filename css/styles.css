@@ -609,6 +609,15 @@ hr.hairline {
 @media (max-width: 620px) {
   .lifestyle-carousel .instagram-track .instagram-tile { flex-basis: 90%; max-width: 90%; }
 }
+/* These tiles reuse the site-wide .placeholder-img.short.has-photo box,
+   which is a landscape 3/2 crop shared by area-page and listing photo
+   grids elsewhere. These particular shots are candid, mostly upright
+   photos, so that wide crop was clipping them into a squat landscape
+   shape. Taller portrait crop (4/5, an Instagram-post shape, fitting
+   for this carousel) scoped to just this carousel's tiles. */
+.lifestyle-carousel .instagram-track .instagram-tile .placeholder-img.short.has-photo {
+  aspect-ratio: 4 / 5;
+}
 
 /* Instagram follow card: a single CTA in place of live post embeds
    (Instagram's own embed widget does not reliably resize on this
