@@ -676,7 +676,7 @@ hr.hairline {
 }
 .hero-inner {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-md);
 }
 .hero-inner.has-photo {
@@ -1518,7 +1518,15 @@ figure.table-wrap { overflow-x: auto; margin: 0; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
-  .two-col { grid-template-columns: 1fr; }
+  /* minmax(0, 1fr), not bare 1fr: a grid item's default min-width is
+     "auto" (its own content's min-content size), so a plain 1fr track
+     refuses to shrink past that -- if any text block inside happens to
+     need ~440px to fit its longest unbreakable run, the column (and the
+     text) sits 440px wide no matter how narrow the screen is, running
+     off the right edge instead of wrapping. minmax(0, 1fr) removes that
+     floor so the column, and the text inside it, always shrinks to fit
+     the actual screen. */
+  .two-col { grid-template-columns: minmax(0, 1fr); }
   .stat-strip { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
   #communities .grid .card { flex: 1 1 calc(50% - 1.125rem); max-width: calc(50% - 1.125rem); }
 }
@@ -1531,7 +1539,7 @@ figure.table-wrap { overflow-x: auto; margin: 0; }
    wins at 980px; still stacks on true mobile widths. */
 .office-map-row.two-col { grid-template-columns: 1fr 1fr; }
 @media (max-width: 560px) {
-  .office-map-row.two-col { grid-template-columns: 1fr; }
+  .office-map-row.two-col { grid-template-columns: minmax(0, 1fr); }
 }
 /* The map's .placeholder-img box uses aspect-ratio:3/2 (shared with photo
    gallery tiles elsewhere on the site). In a narrow grid column that
@@ -1595,15 +1603,21 @@ figure.table-wrap { overflow-x: auto; margin: 0; }
   .has-dropdown .dropdown-menu a { border-bottom: 1px solid var(--color-border); padding: 0.65rem 0.1rem; font-size: 0.88rem; }
   .has-dropdown .dropdown-menu li:last-child a { border-bottom: none; }
   section { padding: var(--space-lg) 0; }
-  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
-  .hero-inner.has-photo { grid-template-columns: 1fr; }
+  /* minmax(0, 1fr) everywhere below, not bare 1fr -- see the .two-col
+     comment above. A grid item's default min-width is "auto" (its own
+     content's min-content size), so a plain 1fr column refuses to
+     shrink past whatever text or media it holds needs, quietly running
+     it off the right edge on a narrow phone instead of wrapping/scaling
+     it down to fit. minmax(0, 1fr) removes that floor. */
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: minmax(0, 1fr); }
+  .hero-inner.has-photo { grid-template-columns: minmax(0, 1fr); }
   .hero-inner.has-photo .hero-photo { max-width: 320px; margin: 0 auto; }
   #communities .grid .card { flex: 1 1 100%; max-width: 100%; }
-  .form-row { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; gap: var(--space-md); }
+  .form-row { grid-template-columns: minmax(0, 1fr); }
+  .footer-grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-md); }
   .footer-bottom .container { flex-direction: column; align-items: flex-start; }
-  .gallery-grid { grid-template-columns: 1fr 1fr; }
-  .stat-strip { grid-template-columns: 1fr; gap: 1.5rem; text-align: left; }
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat-strip { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; text-align: left; }
   .hero-stats { gap: 1.25rem; }
   h1 { font-size: clamp(2.1rem, 8vw, 2.8rem); }
   .btn { width: 100%; text-align: center; }
@@ -1629,7 +1643,7 @@ figure.table-wrap { overflow-x: auto; margin: 0; }
 }
 
 @media (max-width: 420px) {
-  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: minmax(0, 1fr); }
   .nav-name { font-size: 1.15rem; }
   .nav-brandmark img { height: 32px; }
   .nav-right { gap: 0.75rem; }
