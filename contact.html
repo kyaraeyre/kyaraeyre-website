@@ -125,50 +125,15 @@
 
       <div class="reveal">
         <!--
-          FORM NOTE FOR KYARA: This form is a front-end template only, it
-          does not send email or store submissions on its own, since this
-          is a static HTML/CSS site with no server or database. Before
-          publishing, connect the <form> below to a form-handling service
-          (e.g. Formspree, Basin, Netlify Forms) by adding an "action" URL,
-          or replace the button with a mailto: link. See README.md.
+          FORM NOTE FOR KYARA: This embeds the "Contact Page Form" built in
+          HubSpot, so submissions flow straight into your HubSpot contacts
+          instead of nowhere. To edit the fields, labels, or the message
+          box's helper text, edit the form in HubSpot itself (Marketing >
+          Forms) rather than this file -- this script just pulls in
+          whatever that form currently looks like.
         -->
-        <form class="contact-form" action="#" method="POST">
-          <div class="form-row">
-            <div class="form-field">
-              <label for="first-name">First Name</label>
-              <input type="text" id="first-name" name="first-name" required>
-            </div>
-            <div class="form-field">
-              <label for="last-name">Last Name</label>
-              <input type="text" id="last-name" name="last-name" required>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-field">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-field">
-              <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone">
-            </div>
-          </div>
-          <div class="form-field">
-            <label for="interest">I'm interested in</label>
-            <select id="interest" name="interest">
-              <option>Buying a home</option>
-              <option>Selling a home</option>
-              <option>A home valuation</option>
-              <option>General question</option>
-            </select>
-          </div>
-          <div class="form-field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Whether you're interested in buying a home, selling a home, getting a home valuation, or just a general question, drop any message in this box!!"></textarea>
-          </div>
-          <button type="submit" class="btn" style="width:100%;">Send Message</button>
-          <p class="form-note" style="margin-top:1rem;">By submitting, you agree to be contacted by Kyara Eyre regarding your inquiry. See the <a href="privacy.html">Privacy &amp; Cookie Policy</a>.</p>
-        </form>
+        <script src="https://js-na2.hsforms.net/forms/embed/246949822.js" defer></script>
+        <div class="hs-form-frame" data-region="na2" data-form-id="4128a30e-e353-4b84-9d63-9f165e80ed4c" data-portal-id="246949822"></div>
       </div>
     </div>
 
