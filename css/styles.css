@@ -1085,7 +1085,7 @@ a.card { text-decoration: none; color: inherit; }
 }
 .footer-bottom a { color: #cfc9c0; }
 .footer-bottom a:hover { color: var(--color-white); }
-.footer-eho { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+.footer-eho { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; max-width: 100%; }
 .footer-eho-badge {
   border: 1px solid #cfc9c0;
   border-radius: 50%;
@@ -1097,7 +1097,9 @@ a.card { text-decoration: none; color: inherit; }
   font-size: 0.6rem;
   flex-shrink: 0;
 }
-.footer-legal-links { display: flex; gap: 1rem; flex-wrap: wrap; white-space: nowrap; }
+.footer-eho > span:not(.footer-eho-badge) { min-width: 0; }
+.footer-legal-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+.footer-legal-links span { min-width: 0; }
 
 /* -----------------------------
    14b. Headshot frame: offset rectangle behind the photo
