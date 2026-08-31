@@ -1186,7 +1186,14 @@ a.card { text-decoration: none; color: inherit; }
      min-height is a floor aspect-ratio can't undercut, so the box only
      gets taller than 4:3 on the narrowest phones, never shorter than
      the content needs regardless of width. */
-  .hero-full.hero-home { aspect-ratio: 4 / 3; min-height: 480px; }
+  /* width:100% pins this box to its container BEFORE the ratio/min-height
+     below are applied. Without it, Chrome sometimes derives the box's
+     WIDTH from min-height via the aspect-ratio (480px x 4/3 = 640px)
+     instead of the normal direction (deriving height from width) -- 34px
+     wider than the screen, which quietly pushed the whole page into
+     being horizontally scrollable and let the header/logo get cropped
+     on the right edge. Locking width first removes the ambiguity. */
+  .hero-full.hero-home { width: 100%; aspect-ratio: 4 / 3; min-height: 480px; }
   /* The video banner's box is much shorter than a typical full hero, so
      the headline/lede/stats stack (sized for a tall hero) was overflowing
      the box and getting visually cut off by .hero-full's overflow:hidden.
