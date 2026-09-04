@@ -294,6 +294,19 @@
       var slide = slides[current];
       slide.classList.add("is-active");
 
+      /* Get a head start on the NEXT slide's video (if any) as soon as
+         this slide becomes active, so it has this slide's full display
+         time to download in the background instead of stalling the
+         moment it's needed. Paired with preload="none" in the HTML,
+         this means only the current/upcoming video is ever being
+         fetched, instead of every video in the carousel downloading
+         at once on page load. */
+      var nextVideo = slides[(current + 1) % slides.length].querySelector("video");
+      if (nextVideo && nextVideo.preload !== "auto") {
+        nextVideo.preload = "auto";
+        nextVideo.load();
+      }
+
       var video = slide.querySelector("video");
       if (video) {
         var advanced = false;
