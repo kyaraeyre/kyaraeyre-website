@@ -1238,6 +1238,10 @@ a.card { text-decoration: none; color: inherit; }
   .hero-full.hero-home .hero-stats div:last-child { padding-right: 0.5rem; }
   .hero-full.hero-home .hero-stats strong { font-size: 1.05rem; }
   .hero-full.hero-home .hero-stats span { font-size: 0.58rem; line-height: 1.3; }
+  /* Forces "Sales Volume" onto 2 lines like its neighbors so all 3
+     columns share a similar rhythm, without affecting desktop where
+     the wider column fits it on one line naturally. */
+  .hero-full.hero-home .hero-stats .stat-break { display: block; }
 }
 
 /* Personal K/E monogram badge (kept in case it's reused elsewhere later) */
